@@ -18,6 +18,6 @@ public class Action {
     }
 
     public User nextUser() {
-        return user == User.White ? User.Black : User.White;
+        return user == User.UserOne ? User.UserTwo : User.UserOne;
     }
 }

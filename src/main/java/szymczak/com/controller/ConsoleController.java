@@ -9,7 +9,7 @@ public class ConsoleController implements Controller {
     private User currentUser;
 
     public void startGame() {
-        this.currentUser = User.White;
+        this.currentUser = User.UserOne;
     }
 
     @Override
