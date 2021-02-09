@@ -23,6 +23,10 @@ public enum Color {
         }
     };
 
+    public static Color getColorFromChar(char pawnAsChar) {
+        return pawnAsChar == 'w' || pawnAsChar == 'W' ? White : Black;
+    }
+
     public abstract char getMan();
     public abstract char getKing();
 }

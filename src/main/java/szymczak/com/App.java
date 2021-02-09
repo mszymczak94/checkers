@@ -4,22 +4,23 @@ import szymczak.com.controller.ConsoleController;
 import szymczak.com.controller.Controller;
 import szymczak.com.game.console.Action;
 import szymczak.com.game.console.User;
+import szymczak.com.game.console.Validator;
 import szymczak.com.gui.ConsoleGui;
 import szymczak.com.gui.Gui;
 
 public class App {
     public static void main(String[] args) {
         final Gui gui = new ConsoleGui();
-        final Controller controller = new ConsoleController(gui);
+        final Controller controller = new ConsoleController(gui, new Validator(gui));
         Action action;
-        gui.set(controller);
-        gui.displayRules();
+        gui.setController(controller);
+        gui.displayWelcomeMessage();
         controller.startGame();
 
         do {
             User user = controller.getCurrentUser();
             gui.displayGameBoardFor(user);
-            action = gui.askForUserAction();
+            action = controller.askForUserAction();
 
             if (action.isMoveValid()) {
                 controller.setCurrentUser(action.nextUser());

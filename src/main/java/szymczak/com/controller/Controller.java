@@ -1,5 +1,6 @@
 package szymczak.com.controller;
 
+import szymczak.com.game.console.Action;
 import szymczak.com.game.console.User;
 
 public interface Controller {
@@ -10,4 +11,8 @@ public interface Controller {
     void setCurrentUser(User user);
 
     boolean askForNextGame();
+
+    String getBoardToString();
+
+    Action askForUserAction();
 }

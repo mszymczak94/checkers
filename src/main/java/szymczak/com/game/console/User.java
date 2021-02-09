@@ -7,4 +7,8 @@ public enum User {
     User(Color color) {
         this.color = color;
     }
+
+    public Color getColor() {
+        return color;
+    }
 }

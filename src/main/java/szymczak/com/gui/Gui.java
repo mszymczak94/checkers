@@ -5,13 +5,13 @@ import szymczak.com.game.console.Action;
 import szymczak.com.game.console.User;
 
 public interface Gui {
-    void displayRules();
+    void displayWelcomeMessage();
 
-    void set(Controller controller);
+    void setController(Controller controller);
 
     void displayGameBoardFor(User user);
 
-    Action askForUserAction();
+    void askForUserAction(String message);
 
     void sayGoodBye();
 
@@ -19,4 +19,5 @@ public interface Gui {
 
     void displayError(Action action);
 
+    void customMessage(String message);
 }
