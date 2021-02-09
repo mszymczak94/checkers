@@ -2,11 +2,11 @@ package szymczak.com.game.console;
 
 public class Validator {
 
-    public boolean isGameOver() {
+    public static boolean isGameOver() {
         return false;
     }
 
-    public boolean isMoveValid() {
+    public static boolean isMoveValid() {
         return false;
     }
 }

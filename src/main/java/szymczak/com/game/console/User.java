@@ -1,4 +1,5 @@
 package szymczak.com.game.console;
 
-public class User {
+public enum User {
+    White, Black
 }

@@ -6,4 +6,8 @@ public interface Controller {
     User getCurrentUser();
 
     void startGame();
+
+    void setCurrentUser(User user);
+
+    boolean askForNextGame();
 }

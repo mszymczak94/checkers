@@ -6,12 +6,14 @@ import szymczak.com.gui.Gui;
 @Data
 public class ConsoleController implements Controller {
     private final Gui gui;
-
-    public User getCurrentUser() {
-        return null;
-    }
+    private User currentUser;
 
     public void startGame() {
+        this.currentUser = User.White;
+    }
 
+    @Override
+    public boolean askForNextGame() {
+        return false;
     }
 }

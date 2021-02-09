@@ -15,5 +15,8 @@ public interface Gui {
 
     void sayGoodBye();
 
-    boolean askForNextGame();
+    void askForNextGame();
+
+    void displayError(Action action);
+
 }
