@@ -24,6 +24,9 @@ public enum Color {
     };
 
     public static Color getColorFromChar(char pawnAsChar) {
+        if (pawnAsChar == 0) {
+            return null;
+        }
         return pawnAsChar == 'w' || pawnAsChar == 'W' ? White : Black;
     }
 

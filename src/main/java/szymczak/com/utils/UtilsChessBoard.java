@@ -65,7 +65,8 @@ public class UtilsChessBoard {
             return null;
         }
         Coordinate coordinate = new Coordinate(position);
-        return new Pawn(boardGame[coordinate.row][coordinate.col]);
+        char pawn = boardGame[coordinate.row][coordinate.col];
+        return pawn != 0 ? new Pawn(pawn) : null;
     }
 
     @Data

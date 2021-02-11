@@ -55,6 +55,7 @@ public class ConsoleController implements Controller {
         Pawn pawn;
         Action action = null;
         do {
+            gui.displayGameBoardFor(currentUser);
             gui.askForUserAction("Choose piece which would you like to move");
             final int input = scanner.nextInt();
             pawn = UtilsChessBoard.getPiece(input, boardGame);
