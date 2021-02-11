@@ -1,6 +1,5 @@
 package szymczak.com.controller;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -39,7 +38,7 @@ public class ConsoleController implements Controller {
                 case 2:
                     return false;
                 default:
-                    gui.customMessage("Your input is incorrect. Please try again.");
+                    gui.displayMessage("Your input is incorrect. Please try again.");
                     break;
             }
         } while (true);
@@ -56,10 +55,10 @@ public class ConsoleController implements Controller {
         Action action = null;
         do {
             gui.displayGameBoardFor(currentUser);
-            gui.askForUserAction("Choose piece which would you like to move");
+            gui.displayMessage("Choose piece which would you like to move");
             final int input = scanner.nextInt();
             pawn = UtilsChessBoard.getPiece(input, boardGame);
-            boolean isUserPawn = validator.isUserPiece(currentUser, pawn);
+            final boolean isUserPawn = validator.isUserPiece(currentUser, pawn);
             if (isUserPawn) {
                 action = askForPieceMove(pawn);
             }
@@ -68,9 +67,16 @@ public class ConsoleController implements Controller {
     }
 
     private Action askForPieceMove(Pawn pawn) {
-        gui.askForUserAction("Where would you like to move? - choose valid position");
+        Action action = null;
         do {
-            System.out.println("HERE");
+            gui.displayMessage("Where would you like to move? - choose valid position");
+            gui.displayMessage("Remember to write your moves with comma separator");
+            gui.displayGameBoardForUserWithPawn(currentUser, pawn);
+            String input = scanner.next();
+            if (validator.isInputMoveValid(input)) {
+                return Action.buildAction(UtilsChessBoard.copyBoard(boardGame), pawn, input);
+            }
+            gui.displayMessage("This is incorrect input try again");
         } while (true);
     }
 }

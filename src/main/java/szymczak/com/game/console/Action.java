@@ -5,6 +5,11 @@ import lombok.Data;
 @Data
 public class Action {
     private final User user;
+
+    public static Action buildAction(char[][] copyBoard, Pawn pawn, String input) {
+        return null;
+    }
+
     public Validator validateMove() {
         return null;
     }

@@ -9,7 +9,7 @@ public class GuiWrapper {
 
     public boolean isUserPiece(boolean isUserPiece, Color color) {
         if (!isUserPiece) {
-            gui.customMessage("This is not your pawn, please choose one of " + color + " pawns");
+            gui.displayMessage("This is not your pawn, please choose one of " + color + " pawns");
         }
         return isUserPiece;
     }

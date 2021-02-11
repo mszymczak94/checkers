@@ -66,7 +66,17 @@ public class UtilsChessBoard {
         }
         Coordinate coordinate = new Coordinate(position);
         char pawn = boardGame[coordinate.row][coordinate.col];
-        return pawn != 0 ? new Pawn(pawn) : null;
+        return pawn != 0 ? new Pawn(pawn, position) : null;
+    }
+
+    public static char[][] copyBoard(char[][] boardGame) {
+        char[][] copy = new char[boardGame.length][];
+        for (int i = 0; i < boardGame.length; i++) {
+            char[] chars = boardGame[i];
+            copy[i] = new char[boardGame[i].length];
+            System.arraycopy(boardGame[i], 0, copy[i], 0, copy[i].length);
+        }
+        return copy;
     }
 
     @Data

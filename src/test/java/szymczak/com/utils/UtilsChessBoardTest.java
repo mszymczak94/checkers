@@ -1,6 +1,7 @@
 package szymczak.com.utils;
 
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,14 +19,14 @@ public class UtilsChessBoardTest {
     @Test
     public void utilsCreateBoardGame_ShouldReturnInitialBoardGame() {
         char[][] initTestBoard = {
-                { 0, 'b',  0, 'b',  0, 'b',  0, 'b'},
-                {'b',  0, 'b',  0, 'b',  0, 'b',  0},
-                { 0, 'b',  0, 'b',  0, 'b',  0, 'b'},
-                { 0,  0,  0,  0,  0,  0,  0,  0},
-                { 0,  0,  0,  0,  0,  0,  0,  0},
-                {'w',  0, 'w',  0, 'w',  0, 'w',  0},
-                { 0, 'w',  0, 'w',  0, 'w',  0, 'w'},
-                {'w',  0, 'w',  0, 'w',  0, 'w',  0},
+                {0, 'b', 0, 'b', 0, 'b', 0, 'b'},
+                {'b', 0, 'b', 0, 'b', 0, 'b', 0},
+                {0, 'b', 0, 'b', 0, 'b', 0, 'b'},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {'w', 0, 'w', 0, 'w', 0, 'w', 0},
+                {0, 'w', 0, 'w', 0, 'w', 0, 'w'},
+                {'w', 0, 'w', 0, 'w', 0, 'w', 0},
         };
 
         for (int i = 0; i < initBoard.length; i++) {
@@ -38,13 +39,13 @@ public class UtilsChessBoardTest {
     void getBoardToString_ShouldStringInProperFormat() {
         String boardAsStringTest =
                 "   |    0   |    b   |    2   |    b   |    4   |    b   |    6   |    b   |\r\n" +
-                "   |    b   |    9   |    b   |   11   |    b   |   13   |    b   |   15   |\r\n" +
-                "   |   16   |    b   |   18   |    b   |   20   |    b   |   22   |    b   |\r\n" +
-                "   |   24   |   25   |   26   |   27   |   28   |   29   |   30   |   31   |\r\n" +
-                "   |   32   |   33   |   34   |   35   |   36   |   37   |   38   |   39   |\r\n" +
-                "   |    w   |   41   |    w   |   43   |    w   |   45   |    w   |   47   |\r\n" +
-                "   |   48   |    w   |   50   |    w   |   52   |    w   |   54   |    w   |\r\n" +
-                "   |    w   |   57   |    w   |   59   |    w   |   61   |    w   |   63   |\r\n";
+                        "   |    b   |    9   |    b   |   11   |    b   |   13   |    b   |   15   |\r\n" +
+                        "   |   16   |    b   |   18   |    b   |   20   |    b   |   22   |    b   |\r\n" +
+                        "   |   24   |   25   |   26   |   27   |   28   |   29   |   30   |   31   |\r\n" +
+                        "   |   32   |   33   |   34   |   35   |   36   |   37   |   38   |   39   |\r\n" +
+                        "   |    w   |   41   |    w   |   43   |    w   |   45   |    w   |   47   |\r\n" +
+                        "   |   48   |    w   |   50   |    w   |   52   |    w   |   54   |    w   |\r\n" +
+                        "   |    w   |   57   |    w   |   59   |    w   |   61   |    w   |   63   |\r\n";
 
         String boardAsString = UtilsChessBoard.getBoardToString(initBoard);
         assertEquals(boardAsStringTest, boardAsString);
@@ -64,6 +65,17 @@ public class UtilsChessBoardTest {
         assertNull(UtilsChessBoard.getPiece(33, initBoard));
         assertNull(UtilsChessBoard.getPiece(26, initBoard));
         assertNull(UtilsChessBoard.getPiece(35, initBoard));
+    }
+
+    @Test
+    public void copyBoard_ShouldReturnCopyArrayWithButDifferentObject() {
+        char[][] chars = UtilsChessBoard.copyBoard(initBoard);
+
+        Assertions.assertNotEquals(chars, initBoard);
+        for (int i = 0; i < initBoard.length; i++) {
+            Assertions.assertNotEquals(chars[i], initBoard[i]);
+            Assertions.assertArrayEquals(chars[i], initBoard[i]);
+        }
     }
 
 }
